@@ -1,4 +1,5 @@
 import random
+import datetime
 
 from django.shortcuts import render
 
@@ -26,3 +27,16 @@ def lotto(request):
     # 변수를 넘겨주고 싶으면 3번째 인자로 dictionary를 넘겨준다.
     # Djnago에서 활용하는 템플릿 언어는 Django Template Language(DTL)
     return render(request, 'lotto.html', context)
+
+def dinner(request):
+    menus = ['갈치조림', '오징어볶음', '낙지젓갈', '응떡', '노은각', '피자', '치킨']
+    pick = random.choice(menus)
+    context = {
+        'pick': pick,
+        'menus': menus,
+        'users': [],
+        'sentence': 'Life is short, You need Python + django!',
+        'datetime_now': datetime.datetime.now(),
+        'google_link': 'https://www.goolge.com'
+        }
+    return render(request, 'dinner.html', context)
