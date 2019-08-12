@@ -24,4 +24,8 @@ urlpatterns = [
     # 1. url 설정
     # path(url, 해당하는 views.파일)
     path('', views.index),
+    # variable routing
+    # url의 특정 값을 변수처럼 활용하겠다.
+    path('hello/<str:name>/', views.hello),
+    path('lotto/', views.lotto),
 ]
